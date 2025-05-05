@@ -1,12 +1,7 @@
 import { useState } from "react";
 import people from "./data";
 
-import {
-  FaChevronLeft,
-  FaChevronRight,
-  FaQuoteRight,
-  FaRandom,
-} from "react-icons/fa";
+import { FaChevronLeft, FaChevronRight, FaQuoteRight } from "react-icons/fa";
 
 const App = () => {
   const [index, setIndex] = useState(0);
@@ -38,8 +33,7 @@ const App = () => {
 
   const randomPerson = () => {
     setIndex((currentIndex) => {
-      const newRandomIndex = Math.round(currentIndex + Math.random());
-      console.log(newRandomIndex);
+      const newRandomIndex = Math.round(Math.random() * people.length);
       return checkIndex(newRandomIndex);
     });
   };
@@ -64,8 +58,11 @@ const App = () => {
             <FaChevronRight />
           </button>
         </div>
-        <button type="button" className="btn" onClick={() => randomPerson()}>
-          <FaRandom />
+        <button
+          type="button"
+          className="btn btn-hipster"
+          onClick={() => randomPerson()}
+        >
           Surprise me!
         </button>
       </article>

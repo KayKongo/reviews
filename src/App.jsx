@@ -32,7 +32,7 @@ const App = () => {
   };
 
   const randomPerson = () => {
-    setIndex((currentIndex) => {
+    setIndex(() => {
       const newRandomIndex = Math.round(Math.random() * people.length);
       return checkIndex(newRandomIndex);
     });

@@ -1,33 +1,25 @@
 import { useState } from "react";
-import reviews from "./data";
+import people from "./data";
 
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-
-// each person object contains id, name, job, image, text
+import { FaChevronLeft, FaChevronRight, FaQuoteRight } from "react-icons/fa";
 
 const App = () => {
-  const [people, setPeople] = useState(reviews);
+  const [index, setIndex] = useState(0);
+  const { id, image, name, job, text } = people[index];
 
   return (
     <main>
-      {people.map((person) => {
-        return (
-          <div className="review">
-            <img
-              src={person.image}
-              alt={person.name}
-              className="img-container"
-            />
-            <h2 className="author">{person.name}</h2>
-            <span className="job">{person.job}</span>
-            <p className="info">{person.text}</p>
-            <div>
-              <IoIosArrowBack className="prev-btn" />
-              <IoIosArrowForward className="next-btn" />
-            </div>
-          </div>
-        );
-      })}
+      <article className="review">
+        <div className="img-container">
+          <img src={image} alt={name} className="person-img" />
+          <span className="quote-icon">
+            <FaQuoteRight />
+          </span>
+        </div>
+        <h4 className="author">{name}</h4>
+        <p className="job">{job}</p>
+        <p className="info">{text}</p>
+      </article>
     </main>
   );
 };
